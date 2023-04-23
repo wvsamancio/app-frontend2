@@ -1,0 +1,49 @@
+<h1>Contribuir:</h1>
+
+<form #contributeForm="ngForm" (ngSubmit)="onSubmit(contributeForm)">
+  <div class="form-group">
+    <label for="content">Conteúdo</label>
+    <textarea
+      class="form-control"
+      rows="3"
+      name="content"
+      #content="ngModel"
+      [ngModel]="content.value"
+      required
+    ></textarea>
+    <span>
+      <small *ngIf="content.invalid && (content.dirty || content.touched)"
+        >Informe o conteúdo</small
+      >
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="department">Departamento</label>
+    <select
+      class="form-control"
+      placeholder="Informe o departmento"
+      name="department"
+      #department="ngModel"
+      [ngModel]="department.value"
+      required
+    >
+      <option value="">Selecione um departmento</option>
+      <option *ngFor="let item of departments" [value]="item.name">
+        {{ item.name }}
+      </option>
+    </select>
+    <span>
+      <small
+        *ngIf="department.invalid && (department.dirty || department.touched)"
+        >Informe o departmento</small
+      >
+    </span>
+  </div>
+  <button
+    [disabled]="contributeForm.invalid"
+    type="submit"
+    class="btn btn-primary"
+  >
+    Enviar
+  </button>
+</form>
