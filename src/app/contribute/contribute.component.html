@@ -1,24 +1,34 @@
-<h1>Contribuir:</h1>
+<h1 class="text-center">Contribuir:</h1>
+<p>Ao clicar em enviar sua localização atual também será enviada</p>
 
 <form #contributeForm="ngForm" (ngSubmit)="onSubmit(contributeForm)">
-  <div class="form-group">
-    <label for="content">Conteúdo</label>
-    <textarea
-      class="form-control"
-      rows="3"
-      name="content"
-      #content="ngModel"
-      [ngModel]="content.value"
-      required
-    ></textarea>
-    <span>
-      <small *ngIf="content.invalid && (content.dirty || content.touched)"
-        >Informe o conteúdo</small
-      >
-    </span>
+  <div class="mb-3">
+    <label for="content" class="form-label">Conteúdo</label>
+    <div class="input-group has-validation">
+      <textarea
+        class="form-control"
+        rows="3"
+        id="validationServerUsername"
+        aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
+        name="content"
+        #content="ngModel"
+        [ngModel]="content.value"
+        required
+      ></textarea>
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+
+    <div
+      class="invalid-feedback"
+      *ngIf="content.invalid && (content.dirty || content.touched)"
+    >
+      Informe o conteúdo
+    </div>
   </div>
-  <div class="form-group">
-    <label for="department">Departamento</label>
+  <div class="mb-3">
+    <label for="department" class="form-label">Departamento</label>
     <select
       class="form-control"
       placeholder="Informe o departmento"
@@ -27,22 +37,16 @@
       [ngModel]="department.value"
       required
     >
-      <option value="">Selecione um departmento</option>
+      <option selected>Selecione um departmento</option>
       <option *ngFor="let item of departments" [value]="item.name">
         {{ item.name }}
       </option>
     </select>
-    <span>
-      <small
-        *ngIf="department.invalid && (department.dirty || department.touched)"
-        >Informe o departmento</small
-      >
-    </span>
   </div>
   <button
     [disabled]="contributeForm.invalid"
     type="submit"
-    class="btn btn-primary"
+    class="btn btn-primary btn-lg"
   >
     Enviar
   </button>
