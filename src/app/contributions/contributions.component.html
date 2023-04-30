@@ -1,8 +1,13 @@
-<h1 class="text-center">Minhas Contribuições:</h1>
+<h1 class="text-center my-2">Minhas Contribuições:</h1>
 
-<ul *ngFor="let contribute of contributions">
-  <li>{{ contribute.content }}</li>
-  <li>{{ contribute.department }}</li>
-  <li>{{ contribute.lat }}</li>
-  <li>{{ contribute.lng }}</li>
-</ul>
+<div class="card my-2" *ngFor="let contribute of contributions">
+  <div class="row card-body">
+    <div class="col-10">
+      <div class="row">{{ contribute.content }}</div>
+      <div class="row">{{ contribute.department }}</div>
+    </div>
+    <div class="col-2 d-flex align-items-center justify-content-center">
+      <i class="fi fi-rr-eye"></i>
+    </div>
+  </div>
+</div>

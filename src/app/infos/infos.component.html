@@ -1,5 +1,13 @@
-<h1 class="text-center">Informações:</h1>
+<h1 class="text-center my-2">Informações:</h1>
 
-<ul *ngFor="let info of infos">
-  <li>{{ info.title }} - {{ info.content }}</li>
-</ul>
+<div class="card my-2" *ngFor="let info of infos">
+  <div class="row card-body">
+    <div class="col-2 d-flex align-items-center justify-content-center">
+      <i class="fi fi-rr-envelope"></i>
+    </div>
+    <div class="col-8">{{ info.title }}</div>
+    <div class="col-2 d-flex align-items-center justify-content-center">
+      <i class="fi fi-rr-eye"></i>
+    </div>
+  </div>
+</div>
