@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InfoDetailsComponent {
   public info: Info | any;
+  public isLoading: boolean = false;
 
   constructor(private infoService: InfoService, private route: ActivatedRoute) {}
 
@@ -18,6 +19,7 @@ export class InfoDetailsComponent {
     this.infoService.getInfo(id).subscribe(
       response => {
         this.info = response;
+        this.isLoading = true;
       },
       error => {
         console.log(error);

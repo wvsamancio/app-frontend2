@@ -9,6 +9,8 @@ import { ContributionsComponent } from './contributions/contributions.component'
 import { ContactsComponent } from './contacts/contacts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { InfoDetailsComponent } from './info-details/info-details.component';
+import { ContributeDetailsComponent } from './contribute-details/contribute-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FormsModule } from '@angular/forms';
     InfosComponent,
     ContributeComponent,
     ContributionsComponent,
-    ContactsComponent
+    ContactsComponent,
+    InfoDetailsComponent,
+    ContributeDetailsComponent
   ],
   imports: [
     BrowserModule,

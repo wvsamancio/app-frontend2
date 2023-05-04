@@ -4,11 +4,15 @@ import { InfosComponent } from './infos/infos.component';
 import { ContributeComponent } from './contribute/contribute.component';
 import { ContributionsComponent } from './contributions/contributions.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { InfoDetailsComponent } from './info-details/info-details.component';
+import { ContributeDetailsComponent } from './contribute-details/contribute-details.component';
 
 const routes: Routes = [
   { path: 'infos', component: InfosComponent },
+  { path: 'infos/:id', component: InfoDetailsComponent },
   { path: 'contribute', component: ContributeComponent },
   { path: 'contributions', component: ContributionsComponent },
+  { path: 'contributions/:id', component: ContributeDetailsComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: '**', redirectTo: '' }
 ];

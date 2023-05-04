@@ -1,1 +1,26 @@
-<p>contribute-details works!</p>
+<h1 class="text-center my-2">Detalhes:</h1>
+
+<ng-template [ngIf]="isLoading">
+  <div class="card">
+    <img
+      src="https://source.unsplash.com/featured/300x203"
+      class="card-img-top"
+      alt="Google Image"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ contribute.department }}</h5>
+      <p class="card-text">{{ contribute.content }}</p>
+    </div>
+  </div>
+  <div class="row my-2 text-end">
+    <div>
+      <button
+        type="button"
+        [routerLink]="['/contributions']"
+        class="btn btn-primary btn-lg"
+      >
+        Voltar
+      </button>
+    </div>
+  </div>
+</ng-template>

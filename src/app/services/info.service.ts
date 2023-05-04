@@ -17,4 +17,11 @@ export class InfoService {
       error => error
     );
   }
+
+  public getInfo(id: string): Observable<Info> {
+    return this.http.get<Info>(`${this.url}/${id}`).pipe(
+      response => response,
+      error => error
+    );
+  }
 }

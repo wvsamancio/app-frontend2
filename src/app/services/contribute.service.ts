@@ -18,6 +18,13 @@ export class ContributeService {
     );
   }
 
+  public getContribute(id: string): Observable<Contribute> {
+    return this.http.get<Contribute>(`${this.url}/${id}`).pipe(
+      response => response,
+      error => error
+    );
+  }
+
   public saveContribute(contribute: Contribute): Observable<Contribute> {
     return this.http.post<Contribute>(this.url, contribute).pipe(
       response => response,
