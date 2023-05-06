@@ -18,7 +18,7 @@ export class InfosComponent {
         this.infos = response;
       },
       error => {
-        console.log(error);
+        error = error;
       }
     );
   }

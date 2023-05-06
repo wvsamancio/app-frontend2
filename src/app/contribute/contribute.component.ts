@@ -10,13 +10,16 @@ import { ContributeService } from 'src/app/services/contribute.service';
 })
 export class ContributeComponent {
   public departments: Array<{name: string}> = [
-    { name: 'Departamento 1' },
-    { name: 'Departamento 2' },
-    { name: 'Departamento 3' },
-    { name: 'Departamento 4' }
+    { name: 'Água e Esgoto' },
+    { name: 'Educação' },
+    { name: 'Saúde' },
+    { name: 'Segurança' },
+    { name: 'Transporte' },
+    { name: 'Vigilância Sanitária' }
   ];
 
   private contribute: Contribute = {} as Contribute;
+  public success: boolean = false;
 
   private lat: number = 0;
   private lng: number = 0;
@@ -43,8 +46,10 @@ export class ContributeComponent {
     this.contribute.user = "123455678900"
 
     this.contributeService.saveContribute(this.contribute).subscribe(
-      response => console.log(response),
-      error => console.log(error)
+      response => {
+        response
+        this.success = true;},
+      error => error
     );
   }
 

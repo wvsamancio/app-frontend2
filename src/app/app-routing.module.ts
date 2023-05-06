@@ -8,6 +8,7 @@ import { InfoDetailsComponent } from './info-details/info-details.component';
 import { ContributeDetailsComponent } from './contribute-details/contribute-details.component';
 
 const routes: Routes = [
+  { path: '', component: InfosComponent },
   { path: 'infos', component: InfosComponent },
   { path: 'infos/:id', component: InfoDetailsComponent },
   { path: 'contribute', component: ContributeComponent },
