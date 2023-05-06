@@ -2,11 +2,9 @@
 
 <ng-template [ngIf]="isLoading">
   <div class="card">
-    <img
-      src="https://source.unsplash.com/featured/300x203"
-      class="card-img-top"
-      alt="Google Image"
-    />
+    <google-map width="386" height="300" [center]="googleLatLng">
+      <map-marker [position]="googleLatLng"></map-marker>
+    </google-map>
     <div class="card-body">
       <h5 class="card-title">{{ contribute.department }}</h5>
       <p class="card-text">{{ contribute.content }}</p>

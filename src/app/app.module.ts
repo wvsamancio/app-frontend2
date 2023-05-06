@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { InfoDetailsComponent } from './info-details/info-details.component';
 import { ContributeDetailsComponent } from './contribute-details/contribute-details.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ContributeDetailsComponent } from './contribute-details/contribute-deta
   ],
   imports: [
     BrowserModule,
+    GoogleMapsModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule
