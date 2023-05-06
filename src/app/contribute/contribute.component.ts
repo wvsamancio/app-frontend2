@@ -19,10 +19,11 @@ export class ContributeComponent {
   ];
 
   private contribute: Contribute = {} as Contribute;
-  public success: boolean = false;
-
   private lat: number = 0;
   private lng: number = 0;
+
+  public success: boolean = false;
+  public contributeSaved: Contribute = {} as Contribute;
 
   constructor(private contributeService: ContributeService) {}
 
@@ -47,8 +48,10 @@ export class ContributeComponent {
 
     this.contributeService.saveContribute(this.contribute).subscribe(
       response => {
-        response
-        this.success = true;},
+        this.contributeSaved = response;
+        this.success = true;
+        contributeFormValue.reset();
+      },
       error => error
     );
   }

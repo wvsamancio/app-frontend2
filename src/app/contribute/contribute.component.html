@@ -1,12 +1,17 @@
 <h1 class="text-center my-2">Contribuir:</h1>
 
-<div *ngIf="success" class="alert alert-success" role="alert">
-  A simple success alert with
-  <a href="#" class="alert-link">an example link</a>. Give it a click if you
-  like.
+<div *ngIf="success" class="alert alert-success">
+  Contribuição enviada ao departamento de {{ contributeSaved.department }} com
+  sucesso! <br />
+  Verifique os detalhes
+  <a [routerLink]="['/contributions', contributeSaved.id]" class="alert-link"
+    >aqui</a
+  >.
 </div>
-
-<p>Ao clicar em enviar sua localização atual também será enviada</p>
+<p>
+  Ao submeter um novo conteúdo ao departamento responsável sua localização atual
+  é também será enviada.
+</p>
 <form #contributeForm="ngForm" (ngSubmit)="onSubmit(contributeForm)">
   <div class="mb-3">
     <label for="content" class="form-label">Conteúdo</label>
@@ -21,23 +26,20 @@
         [ngModel]="content.value"
         required
       ></textarea>
-      <div id="validationServerUsernameFeedback" class="invalid-feedback">
-        Please choose a username.
-      </div>
-    </div>
-
-    <div
-      class="invalid-feedback"
-      *ngIf="content.invalid && (content.dirty || content.touched)"
-    >
-      Informe o conteúdo
     </div>
   </div>
+
+  <div
+    *ngIf="content.invalid && (content.dirty || content.touched)"
+    class="alert alert-info"
+  >
+    Necessário preencher o conteúdo.
+  </div>
+
   <div class="mb-3">
     <label for="department" class="form-label">Departamento</label>
     <select
       class="form-control"
-      placeholder="Informe o departmento"
       name="department"
       #department="ngModel"
       [ngModel]="department.value"
